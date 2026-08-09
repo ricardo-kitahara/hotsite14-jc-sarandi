@@ -1,0 +1,245 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #F8F9FA;
+    padding: 20px;
+}
+
+/* Estilos do Hero (Topo App) */
+#hero {
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 0 0 15px 15px;
+    /*box-shadow: 0 4px 10px rgba(0,0,0,0.05);*/
+}
+
+#hero .logo {
+    max-width: 180px;
+    margin-bottom: 10px;
+}
+
+#hero h1 {
+    font-size: 2rem;
+    color: #005C29; /* Verde Institucional */
+    margin-bottom: 10px;
+}
+
+#hero h2{
+    font-size: 1.6rem;
+    /*color: #84B067;*/
+    color: #629045;
+    margin-bottom: 10px;
+}
+
+#hero h3{
+    font-size: 1.2rem;
+    color: #84B067;
+    margin-bottom: 10px;
+}
+
+#hero p {
+    color: #555555;
+    font-size: 1rem;
+}
+
+/* Cards de conteúdo */
+.card-resumo {
+    background-color: #FFFFFF;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 5px solid #F3C300; /* Dourado */
+    /*box-shadow: 0 2px 8px rgba(0,0,0,0.08);*/
+}
+
+.accordion-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #005C29;
+    font-size: 1.2rem;
+}
+
+.accordion-header .icon {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+/* Animação do Acordeão */
+.texto-resumo {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-in-out, padding 0.35s ease-in-out, margin-top 0.35s ease-in-out;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    font-size: 0.95rem;
+    color: #444444;
+}
+
+.texto-resumo.ativo {
+    max-height: 2000px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #E0E0E0;
+}
+
+/* Seção Final e CTA */
+#cta {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #E0E0E0;
+}
+
+#cta h2 {
+    color: #005C29;
+    margin-bottom: 10px;
+}
+
+.btn-inscricao {
+    display: block;
+    width: 100%;
+    background-color: #005C29;
+    color: #FFFFFF;
+    padding: 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    /*font-weight: bold;*/
+    font-size: 1.4rem;
+    margin-top: 20px;
+    /*text-transform: uppercase;*/
+    /*box-shadow: 0 4px 6px rgba(0, 92, 41, 0.3);*/
+    transition: background-color 0.3s ease;
+}
+
+.btn-inscricao:active {
+    background-color: #00421e;
+    box-shadow: none;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #888888;
+}
+
+/* Card de Unidades */
+.unidades-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.unidade-card {
+    background-color: #F8F9FA;
+    border-radius: 8px;
+    padding: 10px;
+    border-top: 3px solid #F3C300;
+}
+
+.unidade-card h4 {
+    font-size: 0.8rem;
+    color: #005C29;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.unidade-address {
+    display: block;
+    font-size: 0.78rem;
+    color: #555555;
+    text-decoration: none;
+    margin-bottom: 4px;
+}
+
+.unidade-address:hover {
+    color: #005C29;
+    text-decoration: underline;
+}
+
+.unidade-obs {
+    font-size: 0.72rem;
+    color: #888888;
+    font-style: italic;
+    margin-bottom: 6px;
+}
+
+.unidade-contact {
+    display: block;
+    font-size: 0.78rem;
+    color: #555555;
+    text-decoration: none;
+    margin-bottom: 6px;
+}
+
+.unidade-contact:hover {
+    color: #005C29;
+    text-decoration: underline;
+}
+
+.footer-social {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.social-link {
+    display: inline-block;
+    font-size: 0.68rem;
+    padding: 3px 8px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.social-link.ig {
+    background-color: #C13584;
+}
+
+.social-link.fb {
+    background-color: #1877F2;
+}
+
+/* Estilo para as listas dentro do resumo */
+.texto-resumo ul {
+    margin-left: 20px; /* Cria o espaço para os pontinhos aparecerem */
+    margin-bottom: 15px;
+    list-style-type: disc; /* Garante que o desenho seja um círculo preenchido */
+}
+
+.texto-resumo li {
+    margin-bottom: 10px; /* Dá um respiro entre um item e outro */
+    padding-left: 5px;
+}
+
+/* Estilo para a imagem dentro dos cards */
+.imagem-container {
+    width: 70%;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.imagem-container img {
+    max-width: 80%; /* Garante que a foto nunca ultrapasse o limite do celular */
+    height: auto;    /* Mantém a proporção da foto sem achatar */
+    border-radius: 8px; /* Arredonda as pontas para combinar com o seu layout */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Dá um leve destaque na foto */
+}
