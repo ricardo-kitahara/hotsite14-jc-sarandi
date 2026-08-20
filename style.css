@@ -1,245 +1,359 @@
 /* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* 1. Global / PC Styles (default) */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333333;
-    background-color: #F8F9FA;
-    padding: 20px;
+  font-family: Ottawa;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333333;
+  background-color: #F8F9FA;
+  padding: 10px;
+}
+/* 2. Smartphone styles */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+/* Telas maiores (computadores e tablets) */
+@media (min-width: 769px) {
+  .texto-resumo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 }
 
 /* Estilos do Hero (Topo App) */
 #hero {
-    text-align: center;
-    margin-bottom: 40px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 0 0 15px 15px;
-    /*box-shadow: 0 4px 10px rgba(0,0,0,0.05);*/
+  text-align: center;
+  margin-bottom: 40px;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 0 0 15px 15px;
+  /*box-shadow: 0 4px 10px rgba(0,0,0,0.05);*/
 }
-
 #hero .logo {
-    max-width: 180px;
-    margin-bottom: 10px;
+  max-width: 240px;
+  margin-bottom: 10px;
 }
-
 #hero h1 {
-    font-size: 2rem;
-    color: #005C29; /* Verde Institucional */
-    margin-bottom: 10px;
+  font-size: 2rem;
+  color: #005C29; /* Verde Institucional */
+  margin-bottom: 10px;
 }
-
 #hero h2{
-    font-size: 1.6rem;
-    /*color: #84B067;*/
-    color: #629045;
-    margin-bottom: 10px;
+  font-size: 1.6rem;
+  /*color: #84B067;*/
+  color: #629045;
+  margin-bottom: 10px;
 }
-
 #hero h3{
-    font-size: 1.2rem;
-    color: #84B067;
-    margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #84B067;
+  margin-bottom: 10px;
+}
+#hero p {
+  color: #555555;
+  font-size: 1rem;
 }
 
-#hero p {
-    color: #555555;
-    font-size: 1rem;
+h2.box {
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  padding: 0.15rem 0 0 0.75rem;
+  /*background-color: #ecf9ef;*/
 }
+
+/* Step 1: Create a colorful gradient that loops seamlessly */
+/*.animated-gradient-text {*/
+.gradient {
+  background: linear-gradient(
+    to left,
+    /*#ffffff,*/
+    #ecf9ef,
+    #84B067,
+    #629045,
+    #005C29,
+    #005C29,
+    #629045,
+    #84B067,
+    #ecf9ef
+  );
+
+  /* Step 2: Make the background wider than the text element */
+  background-size: 200% auto;
+
+  /* Step 3: Clip the background strictly to the text shape */
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  /* Step 4: Turn text transparent to reveal the background underneath */
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  /* Step 5: Attach the keyframe animation */
+  animation: shift-gradient 8s linear infinite;
+}
+
+/* Step 6: Move the background position horizontally */
+@keyframes shift-gradient {
+  100% {
+    background-position: 25% center;
+  }
+  0% {
+    background-position: 200% center;
+  }
+}
+
 
 /* Cards de conteúdo */
 .card-resumo {
-    background-color: #FFFFFF;
-    padding: 18px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    border-left: 5px solid #F3C300; /* Dourado */
-    /*box-shadow: 0 2px 8px rgba(0,0,0,0.08);*/
+  background-color: #FFFFFF;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 5px solid #F3C300; /* Dourado */
+  /*box-shadow: 0 2px 8px rgba(0,0,0,0.08);*/
 }
 
 .accordion-header {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #005C29;
-    font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #005C29;
+  font-size: 1.25rem;
+  padding: 0 0 0 0.5rem;
 }
 
 .accordion-header .icon {
-    font-size: 1.5rem;
-    font-weight: normal;
+  font-size: 1.5rem;
+  font-weight: normal;
+  padding: 0 0.5rem 0 0;
+}
+.accordion-header:hover {
+  /*color: #84B067;*/
+  background-color: #ecf9ef;
+}
+.accordion-header:active {
+  /*color: #84B067;*/
+  background-color: #ecf9ef;
+}
+.accordion-header:focus {
+  /*color: #84B067;*/
+  background-color: #ecf9ef;
+}
+.header {
+  background-color: #ecf9ef;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 /* Animação do Acordeão */
 .texto-resumo {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease-in-out, padding 0.35s ease-in-out, margin-top 0.35s ease-in-out;
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-    font-size: 0.95rem;
-    color: #444444;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-in-out, padding 0.35s ease-in-out, margin-top 0.35s ease-in-out;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  font-size: 0.95rem;
+  color: #444444;
 }
 
 .texto-resumo.ativo {
-    max-height: 2000px;
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #E0E0E0;
+  max-height: 2000px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #E0E0E0;
 }
 
 /* Seção Final e CTA */
 #cta {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid #E0E0E0;
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #E0E0E0;
 }
 
 #cta h2 {
-    color: #005C29;
-    margin-bottom: 10px;
+  color: #005C29;
+  margin-bottom: 10px;
 }
 
 .btn-inscricao {
-    display: block;
-    width: 100%;
-    background-color: #005C29;
-    color: #FFFFFF;
-    padding: 16px;
-    text-decoration: none;
-    border-radius: 8px;
-    /*font-weight: bold;*/
-    font-size: 1.4rem;
-    margin-top: 20px;
-    /*text-transform: uppercase;*/
-    /*box-shadow: 0 4px 6px rgba(0, 92, 41, 0.3);*/
-    transition: background-color 0.3s ease;
+  display: block;
+  width: 100%;
+  background-color: #005C29;
+  color: #FFFFFF;
+  padding: 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  /*font-weight: bold;*/
+  font-size: 1.5rem;
+  margin-top: 20px;
+  /*text-transform: uppercase;*/
+  /*box-shadow: 0 4px 6px rgba(0, 92, 41, 0.3);*/
+  transition: background-color 0.3s ease;
 }
 
 .btn-inscricao:active {
-    background-color: #00421e;
-    box-shadow: none;
+  background-color: #00421e;
+  box-shadow: none;
 }
 
 /* Rodapé */
 footer {
-    text-align: center;
-    margin-top: 50px;
-    padding-top: 20px;
-    font-size: 0.8rem;
-    color: #888888;
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  font-size: 0.8rem;
+  color: #888888;
 }
 
 /* Card de Unidades */
 .unidades-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
 .unidade-card {
-    background-color: #F8F9FA;
-    border-radius: 8px;
-    padding: 10px;
-    border-top: 3px solid #F3C300;
+  background-color: #F8F9FA;
+  border-radius: 8px;
+  padding: 10px;
+  border-top: 3px solid #F3C300;
 }
 
 .unidade-card h4 {
-    font-size: 0.8rem;
-    color: #005C29;
-    margin-bottom: 6px;
-    line-height: 1.3;
+  font-size: 0.8rem;
+  color: #005C29;
+  margin-bottom: 6px;
+  line-height: 1.3;
 }
 
 .unidade-address {
-    display: block;
-    font-size: 0.78rem;
-    color: #555555;
-    text-decoration: none;
-    margin-bottom: 4px;
+  display: block;
+  font-size: 0.78rem;
+  color: #555555;
+  text-decoration: none;
+  margin-bottom: 4px;
 }
 
 .unidade-address:hover {
-    color: #005C29;
-    text-decoration: underline;
+  color: #005C29;
+  text-decoration: underline;
 }
 
 .unidade-obs {
-    font-size: 0.72rem;
-    color: #888888;
-    font-style: italic;
-    margin-bottom: 6px;
+  font-size: 0.72rem;
+  color: #888888;
+  font-style: italic;
+  margin-bottom: 6px;
 }
 
 .unidade-contact {
-    display: block;
-    font-size: 0.78rem;
-    color: #555555;
-    text-decoration: none;
-    margin-bottom: 6px;
+  display: block;
+  font-size: 0.78rem;
+  color: #555555;
+  text-decoration: none;
+  margin-bottom: 6px;
 }
 
 .unidade-contact:hover {
-    color: #005C29;
-    text-decoration: underline;
+  color: #005C29;
+  text-decoration: underline;
 }
 
 .footer-social {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-top: 8px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
 }
 
 .social-link {
-    display: inline-block;
-    font-size: 0.68rem;
-    padding: 3px 8px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #ffffff;
+  display: inline-block;
+  font-size: 0.68rem;
+  padding: 3px 8px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 .social-link.ig {
-    background-color: #C13584;
+  background-color: #C13584;
 }
 
 .social-link.fb {
-    background-color: #1877F2;
+  background-color: #1877F2;
 }
 
 /* Estilo para as listas dentro do resumo */
 .texto-resumo ul {
-    margin-left: 20px; /* Cria o espaço para os pontinhos aparecerem */
-    margin-bottom: 15px;
-    list-style-type: disc; /* Garante que o desenho seja um círculo preenchido */
+  margin-left: 20px; /* Cria o espaço para os pontinhos aparecerem */
+  margin-bottom: 15px;
+  list-style-type: disc; /* Garante que o desenho seja um círculo preenchido */
 }
 
 .texto-resumo li {
-    margin-bottom: 10px; /* Dá um respiro entre um item e outro */
-    padding-left: 5px;
+  margin-bottom: 10px; /* Dá um respiro entre um item e outro */
+  padding-left: 5px;
 }
 
-/* Estilo para a imagem dentro dos cards */
-.imagem-container {
-    width: 70%;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: flex-end;
+li.no-bullet {
+  list-style: none;
+}
+.left1 {
+  margin-left: 10px; /* Cria o espaço para os pontinhos aparecerem */
+}
+.left2 {
+  margin-left: 20px; /* Cria o espaço para os pontinhos aparecerem */
+}
+.left3 {
+  margin-left: 40px; /* Cria o espaço para os pontinhos aparecerem */
+}
+.left4 {
+  margin-left: 80px; /* Cria o espaço para os pontinhos aparecerem */
+}
+.left8 {
+  margin-left: 150px; /* Cria o espaço para os pontinhos aparecerem */
 }
 
-.imagem-container img {
-    max-width: 80%; /* Garante que a foto nunca ultrapasse o limite do celular */
-    height: auto;    /* Mantém a proporção da foto sem achatar */
-    border-radius: 8px; /* Arredonda as pontas para combinar com o seu layout */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Dá um leve destaque na foto */
+td {
+  vertical-align: top;
+}
+.td-left-1 {
+  display: flex;
+  margin: 3rem 0 0 -5rem;
+}
+.td-left-2 {
+  display: flex;
+  margin: 3rem 0 0 -4rem;
+}
+
+.image-container {
+  width: 100%;
+  padding: 10px;
+}
+.image-container img {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px; /* Arredonda as pontas para combinar com o seu layout */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Dá um leve destaque na foto */
+}
+
+@font-face {
+  font-family: 'Ottawa';
+  src: url('font/ottawa.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
